@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: .
+    container_name: hellocola-gateway
+    restart: unless-stopped
+    ports:
+      - "80:3000"
+    volumes:
+      - gateway-data:/app/data
+      - gateway-logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - LOG_LEVEL=info
+      - DEFAULT_TTL=30
+      - REAPER_INTERVAL_MS=10000
+      - PENDING_CONFIRM_TIMEOUT=60
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  gateway-data:
+    driver: local
+  gateway-logs:
+    driver: local
