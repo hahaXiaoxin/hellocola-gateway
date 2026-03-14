@@ -1,4 +1,4 @@
-import { Activity, Globe, Shield } from 'lucide-react';
+import { Code2, Server, Rocket } from 'lucide-react';
 
 function HeroSection() {
   return (
@@ -16,37 +16,33 @@ function HeroSection() {
         <div className="opacity-0 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-sm font-medium text-gray-300">动态服务网关</span>
+            <span className="text-sm font-medium text-gray-300">欢迎来到笑心的站点</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
             <span className="bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
               HelloCola
             </span>
-            <br />
-            <span className="bg-gradient-to-r from-primary-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              Gateway
-            </span>
           </h1>
         </div>
 
         <p className="opacity-0 animate-fade-in-up-delay mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
-          一个轻量级的自托管动态网关，基于域名智能路由流量到各个服务。
-          简洁优雅，开箱即用。
+          这里是我的个人空间，汇集了我搭建和运行的各项服务。
+          探索下方卡片，发现更多精彩内容。
         </p>
 
         {/* Feature pills */}
         <div className="opacity-0 animate-fade-in-up-delay mt-10 flex flex-wrap items-center justify-center gap-4">
           <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
-            <Globe className="w-4 h-4 text-primary-300" />
-            <span>域名路由</span>
+            <Code2 className="w-4 h-4 text-primary-300" />
+            <span>热爱编程</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
-            <Activity className="w-4 h-4 text-emerald-300" />
-            <span>心跳监控</span>
+            <Server className="w-4 h-4 text-emerald-300" />
+            <span>自建服务</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
-            <Shield className="w-4 h-4 text-violet-300" />
-            <span>自动清理</span>
+            <Rocket className="w-4 h-4 text-violet-300" />
+            <span>持续折腾</span>
           </div>
         </div>
       </div>

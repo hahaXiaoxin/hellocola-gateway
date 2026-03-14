@@ -27,16 +27,10 @@ function EmptyState() {
       <div className="w-20 h-20 rounded-2xl bg-gray-50 flex items-center justify-center mb-6">
         <Inbox className="w-10 h-10 text-gray-300" />
       </div>
-      <h3 className="text-lg font-semibold text-gray-700 mb-2">暂无已注册的服务</h3>
+      <h3 className="text-lg font-semibold text-gray-700 mb-2">暂无在线服务</h3>
       <p className="text-sm text-gray-400 text-center max-w-md leading-relaxed">
-        服务注册到网关后会自动显示在这里。
-        通过 REST API 注册你的第一个服务吧。
+        目前还没有服务在运行，稍后再来看看吧。
       </p>
-      <div className="mt-6 px-5 py-3 rounded-xl bg-gray-50 border border-gray-100">
-        <code className="text-xs text-gray-500 font-mono">
-          POST /api/services &#123; domain, target, name &#125;
-        </code>
-      </div>
     </div>
   );
 }
@@ -50,11 +44,11 @@ function ServiceGrid() {
         {/* Section header */}
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-            已注册服务
+            我的服务
           </h2>
           <div className="w-12 h-1 rounded-full bg-gradient-to-r from-primary-500 to-indigo-500 mx-auto mb-4" />
           <p className="text-gray-400 max-w-lg mx-auto">
-            以下为动态注册到网关的所有服务，点击卡片即可访问对应服务。
+            以下是我正在运行的各项服务，点击卡片即可访问。
           </p>
         </div>
 
