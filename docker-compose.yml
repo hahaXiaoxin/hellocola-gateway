@@ -3,6 +3,7 @@ version: '3.8'
 services:
   gateway:
     build: .
+    image: hellocola-gateway
     container_name: hellocola-gateway
     restart: unless-stopped
     ports:
