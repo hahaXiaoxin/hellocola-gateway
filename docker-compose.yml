@@ -1,13 +1,11 @@
-version: '3.8'
-
 services:
   gateway:
     build: .
     image: hellocola-gateway
     container_name: hellocola-gateway
     restart: unless-stopped
-    ports:
-      - "80:3000"
+    expose:
+      - "3000"
     volumes:
       - gateway-data:/app/data
       - gateway-logs:/app/logs
@@ -24,6 +22,19 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
+
+  nginx:
+    image: nginx:alpine
+    container_name: hellocola-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - gateway
 
 volumes:
   gateway-data:
