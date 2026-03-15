@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FiGithub } from 'react-icons/fi';
 import { Zap } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,13 +27,13 @@ function Header() {
           <Zap className="w-4.5 h-4.5 text-white" strokeWidth={2.5} />
         </div>
         <span className="text-lg font-bold bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent">
-          {siteConfig.site.name}
+          {__SITE_CONFIG__.site.name}
         </span>
       </div>
 
       <nav className="flex items-center gap-4">
         <a
-          href={siteConfig.links.github}
+          href={__SITE_CONFIG__.links.github}
           target="_blank"
           rel="noopener noreferrer"
           className="w-9 h-9 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200 cursor-pointer"

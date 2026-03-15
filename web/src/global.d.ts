@@ -1,6 +1,4 @@
-import config from '../../site.config.json';
-
-export interface SiteConfig {
+interface SiteConfig {
   site: {
     name: string;
     title: string;
@@ -21,4 +19,4 @@ export interface SiteConfig {
   }>;
 }
 
-export const siteConfig: SiteConfig = config;
+declare const __SITE_CONFIG__: SiteConfig;

@@ -1,5 +1,4 @@
 import { Code2, Server, Rocket, type LucideIcon } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
 
 const iconMap: Record<string, LucideIcon> = { Code2, Server, Rocket };
 const colorMap: Record<string, string> = {
@@ -24,22 +23,22 @@ function HeroSection() {
         <div className="opacity-0 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-sm font-medium text-gray-300">{siteConfig.site.welcomeText}</span>
+            <span className="text-sm font-medium text-gray-300">{__SITE_CONFIG__.site.welcomeText}</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
             <span className="bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
-              {siteConfig.site.name}
+              {__SITE_CONFIG__.site.name}
             </span>
           </h1>
         </div>
 
         <p className="opacity-0 animate-fade-in-up-delay mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
-          {siteConfig.site.heroDescription}
+          {__SITE_CONFIG__.site.heroDescription}
         </p>
 
         {/* Feature pills */}
         <div className="opacity-0 animate-fade-in-up-delay mt-10 flex flex-wrap items-center justify-center gap-4">
-          {siteConfig.features.map((feature) => {
+          {__SITE_CONFIG__.features.map((feature) => {
             const Icon = iconMap[feature.icon];
             return (
               <div key={feature.label} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
