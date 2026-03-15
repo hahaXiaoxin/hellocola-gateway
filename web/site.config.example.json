@@ -1,0 +1,19 @@
+{
+  "site": {
+    "name": "YourSiteName",
+    "title": "YourSiteName - 个人主页",
+    "description": "YourSiteName - 个人主页与服务导航",
+    "subtitle": "个人空间",
+    "welcomeText": "欢迎来到我的站点",
+    "heroDescription": "这里是我的个人空间，汇集了我搭建和运行的各项服务。探索下方卡片，发现更多精彩内容。",
+    "copyright": "YourSiteName"
+  },
+  "links": {
+    "github": "https://github.com/your-username"
+  },
+  "features": [
+    { "icon": "Code2", "label": "热爱编程", "color": "primary" },
+    { "icon": "Server", "label": "自建服务", "color": "emerald" },
+    { "icon": "Rocket", "label": "持续折腾", "color": "violet" }
+  ]
+}

@@ -1,4 +1,12 @@
-import { Code2, Server, Rocket } from 'lucide-react';
+import { Code2, Server, Rocket, type LucideIcon } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
+
+const iconMap: Record<string, LucideIcon> = { Code2, Server, Rocket };
+const colorMap: Record<string, string> = {
+  primary: 'text-primary-300',
+  emerald: 'text-emerald-300',
+  violet: 'text-violet-300',
+};
 
 function HeroSection() {
   return (
@@ -16,34 +24,30 @@ function HeroSection() {
         <div className="opacity-0 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-sm font-medium text-gray-300">欢迎来到笑心的站点</span>
+            <span className="text-sm font-medium text-gray-300">{siteConfig.site.welcomeText}</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight">
             <span className="bg-gradient-to-r from-white via-primary-200 to-primary-400 bg-clip-text text-transparent">
-              HelloCola
+              {siteConfig.site.name}
             </span>
           </h1>
         </div>
 
         <p className="opacity-0 animate-fade-in-up-delay mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
-          这里是我的个人空间，汇集了我搭建和运行的各项服务。
-          探索下方卡片，发现更多精彩内容。
+          {siteConfig.site.heroDescription}
         </p>
 
         {/* Feature pills */}
         <div className="opacity-0 animate-fade-in-up-delay mt-10 flex flex-wrap items-center justify-center gap-4">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
-            <Code2 className="w-4 h-4 text-primary-300" />
-            <span>热爱编程</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
-            <Server className="w-4 h-4 text-emerald-300" />
-            <span>自建服务</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
-            <Rocket className="w-4 h-4 text-violet-300" />
-            <span>持续折腾</span>
-          </div>
+          {siteConfig.features.map((feature) => {
+            const Icon = iconMap[feature.icon];
+            return (
+              <div key={feature.label} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-medium">
+                {Icon && <Icon className={`w-4 h-4 ${colorMap[feature.color] || 'text-primary-300'}`} />}
+                <span>{feature.label}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
 

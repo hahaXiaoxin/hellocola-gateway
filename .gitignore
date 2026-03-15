@@ -5,3 +5,4 @@ dist
 .DS_Store
 data/
 *.log
+site.config.json
