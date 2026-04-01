@@ -17,6 +17,10 @@ interface SiteConfig {
     label: string;
     color: string;
   }>;
+  icp: {
+    code: string;
+    url: string;
+  };
 }
 
 declare const __SITE_CONFIG__: SiteConfig;

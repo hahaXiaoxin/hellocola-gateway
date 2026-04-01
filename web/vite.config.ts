@@ -21,6 +21,10 @@ const defaultConfig = {
     { icon: 'Server', label: '自建服务', color: 'emerald' },
     { icon: 'Rocket', label: '持续折腾', color: 'violet' },
   ],
+  icp: {
+    code: '',
+    url: 'https://beian.miit.gov.cn',
+  },
 };
 
 function deepMerge<T extends Record<string, any>>(target: T, source: Record<string, any>): T {

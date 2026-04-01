@@ -13,6 +13,16 @@ function Footer() {
         <p className="text-xs text-gray-300">
           &copy; {currentYear} {__SITE_CONFIG__.site.copyright}. 保留所有权利。
         </p>
+        {__SITE_CONFIG__.icp.code && (
+          <a
+            href={__SITE_CONFIG__.icp.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-gray-400 hover:text-primary-500 transition-colors"
+          >
+            {__SITE_CONFIG__.icp.code}
+          </a>
+        )}
       </div>
     </footer>
   );

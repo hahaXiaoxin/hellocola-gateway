@@ -15,5 +15,9 @@
     { "icon": "Code2", "label": "热爱编程", "color": "primary" },
     { "icon": "Server", "label": "自建服务", "color": "emerald" },
     { "icon": "Rocket", "label": "持续折腾", "color": "violet" }
-  ]
+  ],
+  "icp": {
+    "code": "粤ICP备XXXXXXXXX号",
+    "url": "https://beian.miit.gov.cn"
+  }
 }
