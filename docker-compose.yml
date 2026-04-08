@@ -16,6 +16,8 @@ services:
       - DEFAULT_TTL=30
       - REAPER_INTERVAL_MS=10000
       - PENDING_CONFIRM_TIMEOUT=60
+    networks:
+      - hellocola-net
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
       interval: 30s
@@ -35,6 +37,8 @@ services:
       - ./certbot/conf:/etc/letsencrypt
     depends_on:
       - gateway
+    networks:
+      - hellocola-net
 
 volumes:
   gateway-data:
@@ -44,4 +48,4 @@ volumes:
 
 networks:
   hellocola-net:
-    external: true             # <-- 引用外部共享网络
+    external: true
