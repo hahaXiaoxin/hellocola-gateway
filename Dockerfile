@@ -1,5 +1,5 @@
 # Stage 1: Install dependencies
-FROM node:20-alpine AS deps
+FROM node:22-alpine AS deps
 RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* ./
@@ -22,7 +22,7 @@ COPY server/ ./server/
 RUN pnpm --filter server build
 
 # Stage 4: Production runtime
-FROM node:20-alpine AS runtime
+FROM node:22-alpine AS runtime
 RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 

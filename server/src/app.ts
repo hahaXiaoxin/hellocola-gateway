@@ -29,7 +29,7 @@ export class GatewayApp {
 
   /**
    * Initialize middleware chain and components.
-   * Order matters: logging -> CORS -> JSON body -> API routes -> proxy -> static
+   * Order matters: logging -> CORS -> proxy -> JSON body -> API routes -> static
    */
   initialize(): void {
     // Trust proxy for correct client IP behind Docker/nginx
@@ -41,13 +41,15 @@ export class GatewayApp {
     // 2. CORS for API access
     this.app.use(cors());
 
-    // 3. API routes (express.json() is applied inside the router)
-    const apiRouter = createApiRouter(this.registry);
-    this.app.use('/api', apiRouter);
-
-    // 5. Reverse proxy (matches by Host header)
+    // 3. Reverse proxy — runs BEFORE API routes so proxied
+    //    requests (e.g. alist's /api/auth/login) are forwarded
+    //    with body intact, before express.json() can consume it.
     this.proxyEngine.initialize();
     this.app.use(this.proxyEngine.handleRequest);
+
+    // 4. API routes (express.json() applied inside the router)
+    const apiRouter = createApiRouter(this.registry);
+    this.app.use('/api', apiRouter);
 
     // 6. Static file serving (fallback for unmatched domains)
     const staticMiddlewares = createStaticServe();
