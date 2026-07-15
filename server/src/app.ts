@@ -41,10 +41,7 @@ export class GatewayApp {
     // 2. CORS for API access
     this.app.use(cors());
 
-    // 3. JSON body parsing (only for API routes)
-    this.app.use('/api', express.json());
-
-    // 4. API routes
+    // 3. API routes (express.json() is applied inside the router)
     const apiRouter = createApiRouter(this.registry);
     this.app.use('/api', apiRouter);
 
