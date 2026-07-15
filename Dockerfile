@@ -1,8 +1,8 @@
 # Stage 1: Install dependencies
 FROM node:22-alpine AS deps
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
-COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* .npmrc ./
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* ./
 COPY server/package.json ./server/
 COPY web/package.json ./web/
 RUN pnpm install --frozen-lockfile || pnpm install
@@ -23,10 +23,10 @@ RUN pnpm --filter server build
 
 # Stage 4: Production runtime
 FROM node:22-alpine AS runtime
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
 
-COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* .npmrc ./
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* ./
 COPY server/package.json ./server/
 
 # Install production dependencies only
